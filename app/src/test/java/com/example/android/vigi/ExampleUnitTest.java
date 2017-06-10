@@ -1,4 +1,4 @@
-package com.example.jacky.final_project;
+package com.example.android.vigi;
 
 import org.junit.Test;
 
