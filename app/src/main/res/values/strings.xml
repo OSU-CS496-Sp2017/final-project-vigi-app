@@ -1,13 +1,7 @@
 <resources>
-<<<<<<< HEAD
-    <string name="app_name">Connected Weather</string>
+    <string name="app_name">ViGi</string>
     <string name="loading_error_message">Woops.  We couldn\'t complete your search.  Check your internet connection and try again.</string>
     <string name="action_share">Share repo</string>
     <string name="action_view_in_map">View the location in map</string>
     <string name="share_chooser_title">Pick an app to share this repo</string>
-=======
-    <string name="app_name">Final_Project</string>
-    <string name="loading_error_message">Woops.  We couldn\'t complete your search.  Check your internet connection and try again.</string>
-
->>>>>>> ecba13d18b0d3c2900d3de94cfc1e8be0b567ba6
 </resources>
