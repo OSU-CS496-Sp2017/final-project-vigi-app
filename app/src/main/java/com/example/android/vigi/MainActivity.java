@@ -1,8 +1,6 @@
 package com.example.android.vigi;
 
 import android.content.Intent;
-import android.net.Uri;
-import android.os.AsyncTask;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.AsyncTaskLoader;
 import android.support.v4.content.Loader;
@@ -13,8 +11,6 @@ import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -27,8 +23,6 @@ import com.example.android.vigi.utils.NetworkUtils;
 
 import java.io.IOException;
 import java.util.ArrayList;
-
-
 
 
 public class MainActivity extends AppCompatActivity implements NewsAdapter.OnSearchResultClickListener,
@@ -157,5 +151,12 @@ public class MainActivity extends AppCompatActivity implements NewsAdapter.OnSea
     @Override
     public void onLoaderReset(Loader<String> loader) {
         // Nothing to do...
+    }
+
+    /**
+     * Created by Jason on 6/10/17.
+     */
+
+    public static class NewsItemAdapter {
     }
 }
