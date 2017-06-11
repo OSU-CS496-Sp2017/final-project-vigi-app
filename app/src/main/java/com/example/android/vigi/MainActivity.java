@@ -29,8 +29,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 
-
-
 public class MainActivity extends AppCompatActivity implements NewsAdapter.OnSearchResultClickListener,
         LoaderManager.LoaderCallbacks<String>{
 

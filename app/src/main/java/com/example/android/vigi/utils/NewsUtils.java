@@ -32,6 +32,7 @@ public class NewsUtils {
         public String date;
         public String author;
         public String description;
+        public String image;
     }
 
     public static String buildNewsSearchURL(String searchQuery) {
@@ -60,6 +61,8 @@ public class NewsUtils {
                 searchResult.author = searchResultItem.getString("author");
 
                 searchResult.description = searchResultItem.getString("description");
+
+                searchResult.image = searchResultItem.getString("urlToImage");
 
 
                 searchResultsList.add(searchResult);
