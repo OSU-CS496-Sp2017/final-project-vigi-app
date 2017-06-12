@@ -20,6 +20,12 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.content.res.Configuration;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 
 
 import com.example.android.vigi.utils.NewsUtils;
@@ -30,7 +36,11 @@ import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity implements NewsAdapter.OnSearchResultClickListener,
-        LoaderManager.LoaderCallbacks<String>{
+        LoaderManager.LoaderCallbacks<String>, NavigationView.OnNavigationItemSelectedListener{
+
+    private DrawerLayout mDrawerLayout;
+    private ActionBarDrawerToggle mDrawerToggle;
+
 
     private static final String TAG = MainActivity.class.getSimpleName();
     private static final String SEARCH_RESULTS_LIST_KEY = "searchResultsList";
@@ -51,6 +61,14 @@ public class MainActivity extends AppCompatActivity implements NewsAdapter.OnSea
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        mDrawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.drawer_open, R.string.drawer_close);
+        mDrawerLayout.addDrawerListener(mDrawerToggle);
+
 
         mSearchResultsList = null;
 
@@ -78,6 +96,28 @@ public class MainActivity extends AppCompatActivity implements NewsAdapter.OnSea
             }
         });
     }
+
+    @Override
+    protected void onPostCreate(@Nullable Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        mDrawerToggle.syncState();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        mDrawerToggle.onConfigurationChanged(newConfig);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (mDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
     private void doNews (String searchQuery){
         String newsSearchUrl = NewsUtils.buildNewsSearchURL(searchQuery);
 
@@ -92,6 +132,7 @@ public class MainActivity extends AppCompatActivity implements NewsAdapter.OnSea
         intent.putExtra(NewsUtils.SearchResult.EXTRA_SEARCH_RESULT, searchResult);
         startActivity(intent);
     }
+
 
     @Override
     public Loader<String> onCreateLoader(int id, final Bundle args) {
@@ -155,5 +196,26 @@ public class MainActivity extends AppCompatActivity implements NewsAdapter.OnSea
     @Override
     public void onLoaderReset(Loader<String> loader) {
         // Nothing to do...
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.nav_search:
+                mDrawerLayout.closeDrawers();
+                return true;
+            case R.id.nav_saved_search_results:
+                mDrawerLayout.closeDrawers();
+                /*Intent savedResultsIntent = new Intent(this, SavedSearchResultsActivity.class);
+                startActivity(savedResultsIntent);*/
+                return true;
+            case R.id.nav_settings:
+                mDrawerLayout.closeDrawers();
+                /*Intent settingsIntent = new Intent(this, SettingsActivity.class);
+                startActivity(settingsIntent);*/
+                return true;
+            default:
+                return false;
+        }
     }
 }
