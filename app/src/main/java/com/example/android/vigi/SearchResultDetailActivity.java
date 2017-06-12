@@ -23,12 +23,14 @@ import android.os.AsyncTask;
 import java.io.InputStream;
 
 public class SearchResultDetailActivity extends AppCompatActivity {
+    private NewsUtils.SearchResult mSearchResult;
+
     private TextView mSearchResultTitleTV;
     private TextView mSearchResultDateTV;
     private TextView mSearchResultAuthorTV;
     private TextView mSearchResultDescriptionTV;
     private ImageView mSearchResultImageTV;
-    private NewsUtils.SearchResult mSearchResult;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,13 +80,10 @@ public class SearchResultDetailActivity extends AppCompatActivity {
         }
     }
 
-    /*
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_view_in_map:
-                viewRepoOnInMap();
-                return true;
             case R.id.action_share:
                 shareRepo();
                 return true;
@@ -99,19 +98,10 @@ public class SearchResultDetailActivity extends AppCompatActivity {
         return true;
     }
 
-    public void viewRepoOnInMap() {
-        if (mSearchResult != null) {
-            Uri repoUri = Uri.parse("http://maps.google.com/maps?q=" + "corvallis");
-            Intent webIntent = new Intent(Intent.ACTION_VIEW, repoUri);
-            if (webIntent.resolveActivity(getPackageManager()) != null) {
-                startActivity(webIntent);
-            }
-        }
-    }
 
     public void shareRepo() {
         if (mSearchResult != null) {
-            String shareText = mSearchResult.date + mSearchResult.temperature + mSearchResult.weather;
+            String shareText = mSearchResult.description;
             ShareCompat.IntentBuilder.from(this)
                     .setType("text/plain")
                     .setText(shareText)
@@ -119,5 +109,4 @@ public class SearchResultDetailActivity extends AppCompatActivity {
                     .startChooser();
         }
     }
-*/
 }
