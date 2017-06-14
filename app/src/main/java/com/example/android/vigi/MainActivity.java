@@ -26,6 +26,8 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.content.SharedPreferences;
+import android.support.v7.preference.PreferenceManager;
 
 
 import com.example.android.vigi.utils.NewsUtils;
@@ -119,8 +121,21 @@ public class MainActivity extends AppCompatActivity implements NewsAdapter.OnSea
 
 
     private void doNews (String searchQuery){
-        String newsSearchUrl = NewsUtils.buildNewsSearchURL(searchQuery);
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
+        String sort =
+                sharedPreferences.getString(
+                        getString(R.string.pref_sort_key),
+                        getString(R.string.pref_sort_default)
+                );
+        String category =
+                sharedPreferences.getString(
+                        getString(R.string.pref_category_key),
+                        getString(R.string.pref_category_default)
+                );
+
+
+        String newsSearchUrl = NewsUtils.buildNewsSearchURL(searchQuery, sort, category);
         Bundle argsBundle = new Bundle();
         argsBundle.putString(SEARCH_URL_KEY, newsSearchUrl);
         getSupportLoaderManager().restartLoader(NEWS_SEARCH_LOADER_ID, argsBundle, this);
@@ -211,8 +226,8 @@ public class MainActivity extends AppCompatActivity implements NewsAdapter.OnSea
                 return true;
             case R.id.nav_settings:
                 mDrawerLayout.closeDrawers();
-                /*Intent settingsIntent = new Intent(this, SettingsActivity.class);
-                startActivity(settingsIntent);*/
+                Intent settingsIntent = new Intent(this, SettingsActivity.class);
+                startActivity(settingsIntent);
                 return true;
             default:
                 return false;

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="pref_sort_entries">
+        <item>Top</item>
+        <item>Latest</item>
+        <item>Popular</item>
+    </string-array>
+
+    <string-array name="pref_sort_values">
+        <item>top</item>
+        <item>latest</item>
+        <item>popular</item>
+    </string-array>
+
+    <string-array name="pref_category_entries">
+        <item>Business</item>
+        <item>Entertainment</item>
+        <item>Gaming</item>
+        <item>Gaming</item>
+        <item>Music</item>
+        <item>Politics</item>
+        <item>Science and Nature</item>
+        <item>Sport</item>
+        <item>Technology</item>
+    </string-array>
+
+    <string-array name="pref_category_values">
+        <item>business</item>
+        <item>entertainment</item>
+        <item>gaming</item>
+        <item>gaming</item>
+        <item>music</item>
+        <item>politics</item>
+        <item>science-and-nature</item>
+        <item>sport</item>
+        <item>technology</item>
+    </string-array>
+</resources>
