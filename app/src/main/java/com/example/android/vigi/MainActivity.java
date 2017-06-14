@@ -97,6 +97,9 @@ public class MainActivity extends AppCompatActivity implements NewsAdapter.OnSea
                 }
             }
         });
+
+        NavigationView navigationView = (NavigationView)findViewById(R.id.nv_navigation_drawer);
+        navigationView.setNavigationItemSelectedListener(this);
     }
 
     @Override
@@ -135,7 +138,8 @@ public class MainActivity extends AppCompatActivity implements NewsAdapter.OnSea
                 );
 
 
-        String newsSearchUrl = NewsUtils.buildNewsSearchURL(searchQuery, sort, category);
+        String newsSearchUrl = NewsUtils.buildNewsSearchURL(searchQuery);
+
         Bundle argsBundle = new Bundle();
         argsBundle.putString(SEARCH_URL_KEY, newsSearchUrl);
         getSupportLoaderManager().restartLoader(NEWS_SEARCH_LOADER_ID, argsBundle, this);

@@ -21,7 +21,6 @@ import java.util.TimeZone;
 public class NewsUtils {
     private final static String OWM_NEWS_BASE_URL = "https://newsapi.org/v1/articles";
     private final static String OWM_NEWS_QUERY_PARAM = "source";
-    private final static String OWM_NEWS_SORT_BY = "sortBy";
     private final static String OWM_NEWS_APP_ID = "apiKey";
 
     private final static String OWM_NEWS_APIKEY = "8adf9b7e456c41819410537af7cce783";
@@ -36,10 +35,9 @@ public class NewsUtils {
         public String image;
     }
 
-    public static String buildNewsSearchURL(String searchQuery, String sort, String category) {
+    public static String buildNewsSearchURL(String searchQuery) {
         return Uri.parse(OWM_NEWS_BASE_URL).buildUpon()
                 .appendQueryParameter(OWM_NEWS_QUERY_PARAM, searchQuery)
-                .appendQueryParameter(OWM_NEWS_SORT_BY, sort)
                 .appendQueryParameter(OWM_NEWS_APP_ID, OWM_NEWS_APIKEY)
                 .build()
                 .toString();
