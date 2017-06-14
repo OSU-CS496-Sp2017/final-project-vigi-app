@@ -7,4 +7,9 @@
     android:title="@string/action_share"
     app:showAsAction="ifRoom"/>
 
+    <item
+        android:id="@+id/action_view_new"
+        android:title="@string/action_view_new"
+        app:showAsAction="never" />
+
 </menu>

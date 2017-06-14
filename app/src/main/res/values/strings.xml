@@ -4,6 +4,7 @@
     <string name="action_share">Share repo</string>
     <string name="action_view_in_map">View the location in map</string>
     <string name="share_chooser_title">Pick an app to share this repo</string>
+    <string name="action_view_new">View this new on browser</string>
 
 
     <string name="drawer_open">Open drawer</string>

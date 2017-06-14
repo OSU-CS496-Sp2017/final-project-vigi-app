@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.AsyncTaskLoader;
 import android.support.v4.content.Loader;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -49,7 +50,6 @@ public class MainActivity extends AppCompatActivity implements NewsAdapter.OnSea
     private static final String SEARCH_URL_KEY = "NewsURL";
     private static final int NEWS_SEARCH_LOADER_ID = 0;
 
-
     private RecyclerView mSearchResultsRV;
     private EditText mSearchBoxET;
     private ProgressBar mLoadingIndicatorPB;
@@ -66,12 +66,6 @@ public class MainActivity extends AppCompatActivity implements NewsAdapter.OnSea
 
 
         mDrawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
-        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.drawer_open, R.string.drawer_close);
-        mDrawerLayout.addDrawerListener(mDrawerToggle);
-
-
         mSearchResultsList = null;
 
         mSearchBoxET = (EditText)findViewById(R.id.et_search_box);
@@ -84,6 +78,11 @@ public class MainActivity extends AppCompatActivity implements NewsAdapter.OnSea
 
         mNewsAdapter = new NewsAdapter(this);
         mSearchResultsRV.setAdapter(mNewsAdapter);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.drawer_open, R.string.drawer_close);
+        mDrawerLayout.addDrawerListener(mDrawerToggle);
 
         getSupportLoaderManager().initLoader(NEWS_SEARCH_LOADER_ID, null, this);
 
@@ -225,8 +224,8 @@ public class MainActivity extends AppCompatActivity implements NewsAdapter.OnSea
                 return true;
             case R.id.nav_saved_search_results:
                 mDrawerLayout.closeDrawers();
-                /*Intent savedResultsIntent = new Intent(this, SavedSearchResultsActivity.class);
-                startActivity(savedResultsIntent);*/
+                Intent savedResultsIntent = new Intent(this, SavedSearchResultsActivity.class);
+                startActivity(savedResultsIntent);
                 return true;
             case R.id.nav_settings:
                 mDrawerLayout.closeDrawers();
