@@ -12,7 +12,7 @@
 
         <ImageView
             android:id="@+id/iv_search_result_bookmark"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_bookmark_border_black_48dp"/>
 
@@ -52,7 +52,7 @@
 
     <ImageView
         android:id="@+id/tv_search_image"
-        android:layout_width="250dp"
+        android:layout_width="match_parent"
         android:layout_height="250dp"/>
 
     <TextView
