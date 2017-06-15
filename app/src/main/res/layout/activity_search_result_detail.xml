@@ -18,7 +18,7 @@
 
     <TextView
         android:id="@+id/tv_search_title"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="32sp"
         android:textColor="#000"
@@ -26,7 +26,7 @@
 
     <TextView
         android:id="@+id/tv_search_date"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
@@ -35,7 +35,7 @@
 
     <TextView
         android:id="@+id/tv_search_author"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp"
         android:textSize="16dp"
@@ -43,7 +43,7 @@
 
     <TextView
         android:id="@+id/tv_search_description"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp"
         android:textSize="28dp"
