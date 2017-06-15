@@ -20,6 +20,7 @@
         android:id="@+id/tv_search_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="cursive"
         android:textSize="32sp"
         android:textColor="#000"
         android:padding="16dp"/>
@@ -28,6 +29,7 @@
         android:id="@+id/tv_search_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="cursive"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:textSize="14dp" />
@@ -37,6 +39,7 @@
         android:id="@+id/tv_search_author"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="cursive"
         android:padding="16dp"
         android:textSize="16dp"
         android:textColor="#008000"/>
@@ -45,6 +48,7 @@
         android:id="@+id/tv_search_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="cursive"
         android:padding="16dp"
         android:textSize="28dp"
         android:textColor="#000000"/>
@@ -59,6 +63,7 @@
         android:id="@+id/tv_search_url"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="cursive"
         android:padding="16dp"
         android:textSize="20dp"
         android:textColor="#000000"/>
