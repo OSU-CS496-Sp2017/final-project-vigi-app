@@ -5,12 +5,19 @@ package com.example.android.vigi.data;
  */
 
 public class SourcesPreference {
-    private static final String DEFAULT_NEWS_SOURCE = "cnn";
-    private static final String DEFAULT_NEWS_SORTBY = "latest";
+    private static String DEFAULT_NEWS_CATEGORY = "business";
+    private static String DEFAULT_NEWS_SORTBY = "latest";
 
+    public static void change_category(String category){
+        DEFAULT_NEWS_CATEGORY = category;
+    }
+
+    public static void change_unit(String sort) {
+            DEFAULT_NEWS_SORTBY = sort;
+    }
 
     public static String getDefaultNewsSource() {
-        return DEFAULT_NEWS_SOURCE;
+        return DEFAULT_NEWS_CATEGORY;
     }
 
     public static String getDefaultNewsSortby() {
