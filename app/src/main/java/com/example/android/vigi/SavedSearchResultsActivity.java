@@ -72,7 +72,7 @@ public class SavedSearchResultsActivity extends AppCompatActivity implements New
             searchResult.title = cursor.getString(
                     cursor.getColumnIndex(NewsSearchContract.FavoriteNews.COLUMN_TITLE)
             );
-            /*searchResult.description = cursor.getString(
+            searchResult.description = cursor.getString(
                     cursor.getColumnIndex(NewsSearchContract.FavoriteNews.COLUMN_DESCRIPTION)
             );
             searchResult.url = cursor.getString(
@@ -83,7 +83,7 @@ public class SavedSearchResultsActivity extends AppCompatActivity implements New
             );
             searchResult.date = cursor.getString(
                     cursor.getColumnIndex(NewsSearchContract.FavoriteNews.COLUMN_DATE)
-            );*/
+            );
             searchResultsList.add(searchResult);
         }
         cursor.close();

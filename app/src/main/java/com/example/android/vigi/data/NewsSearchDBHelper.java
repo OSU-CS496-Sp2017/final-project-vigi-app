@@ -19,9 +19,9 @@ public class NewsSearchDBHelper extends SQLiteOpenHelper{
         final String SQL_CREATE_FAVORITE_REPOS_TABLE =
                 "CREATE TABLE " + NewsSearchContract.FavoriteNews.TABLE_NAME + " (" +
                         NewsSearchContract.FavoriteNews._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                        NewsSearchContract.FavoriteNews.COLUMN_TITLE + " TEXT NOT NULL, " +
-                        NewsSearchContract.FavoriteNews.COLUMN_DESCRIPTION + " TEXT NOT NULL, " +
-                        NewsSearchContract.FavoriteNews.COLUMN_URL + " TEXT NOT NULL, " +
+                        NewsSearchContract.FavoriteNews.COLUMN_TITLE + " TEXT, " +
+                        NewsSearchContract.FavoriteNews.COLUMN_DESCRIPTION + " TEXT, " +
+                        NewsSearchContract.FavoriteNews.COLUMN_URL + " TEXT, " +
                         NewsSearchContract.FavoriteNews.COLUMN_AUTHOR + " TEXT, " +
                         NewsSearchContract.FavoriteNews.COLUMN_DATE + " TIMESTAMP DEFAULT CURRENT_TIMESTAMP " +
                         ");";

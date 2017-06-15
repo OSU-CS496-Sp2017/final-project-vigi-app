@@ -11,7 +11,6 @@ import android.net.Uri;
 import android.support.v4.app.ShareCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
 import android.database.sqlite.SQLiteDatabase;
 import android.widget.ImageView;
 import android.view.Menu;
@@ -68,6 +67,11 @@ public class SearchResultDetailActivity extends AppCompatActivity {
             mSearchResultDescriptionTV.setText(mSearchResult.description);
             new DownloadImageTask(mSearchResultImageTV).execute(mSearchResult.image);
             mSearchResultUrlTV.setText("Link: " + mSearchResult.url);
+
+            mIsBookmarked = checkSearchResultIsInDB();
+            updateBookmarkIconState();
+
+            //updateStarCountInDB();
 
         }
 
@@ -175,10 +179,10 @@ public class SearchResultDetailActivity extends AppCompatActivity {
         if (mSearchResult != null) {
             ContentValues values = new ContentValues();
             values.put(NewsSearchContract.FavoriteNews.COLUMN_TITLE, mSearchResult.title);
-            //values.put(NewsSearchContract.FavoriteNews.COLUMN_DESCRIPTION, mSearchResult.description);
-            //values.put(NewsSearchContract.FavoriteNews.COLUMN_URL, mSearchResult.url);
-            //values.put(NewsSearchContract.FavoriteNews.COLUMN_AUTHOR, mSearchResult.author);
-            //values.put(NewsSearchContract.FavoriteNews.COLUMN_DATE, mSearchResult.date);
+            values.put(NewsSearchContract.FavoriteNews.COLUMN_DESCRIPTION, mSearchResult.description);
+            values.put(NewsSearchContract.FavoriteNews.COLUMN_URL, mSearchResult.url);
+            values.put(NewsSearchContract.FavoriteNews.COLUMN_AUTHOR, mSearchResult.author);
+            values.put(NewsSearchContract.FavoriteNews.COLUMN_DATE, mSearchResult.date);
             return mDB.insert(NewsSearchContract.FavoriteNews.TABLE_NAME, null, values);
         } else {
             return -1;
@@ -217,7 +221,7 @@ public class SearchResultDetailActivity extends AppCompatActivity {
             String sqlSelection = NewsSearchContract.FavoriteNews.COLUMN_TITLE + " = ?";
             String[] sqlSelectionArgs = { mSearchResult.title };
             ContentValues values = new ContentValues();
-            //values.put(NewsSearchContract.FavoriteNews.COLUMN_AUTHOR, mSearchResult.author);
+            values.put(NewsSearchContract.FavoriteNews.COLUMN_AUTHOR, mSearchResult.author);
             mDB.update(NewsSearchContract.FavoriteNews.TABLE_NAME, values, sqlSelection, sqlSelectionArgs);
         }
     }*/
