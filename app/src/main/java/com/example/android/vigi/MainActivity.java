@@ -25,10 +25,10 @@ import android.content.res.Configuration;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.content.SharedPreferences;
 import android.support.v7.preference.PreferenceManager;
+import android.graphics.Typeface
 
 
 import com.example.android.vigi.utils.NewsUtils;
@@ -136,7 +136,11 @@ public class MainActivity extends AppCompatActivity implements NewsAdapter.OnSea
                         getString(R.string.pref_category_default)
                 );
 
+        TextView text = (TextView) findViewById(R.id.tv_search_description);
+        Typeface font = Typeface.createFromAsset(getAssets(), "yourfont.ttf");
+        text.setTypeface(font);
 
+        searchQuery = check_query(searchQuery);
         String newsSearchUrl = NewsUtils.buildNewsSearchURL(searchQuery);
 
         Bundle argsBundle = new Bundle();
@@ -219,9 +223,6 @@ public class MainActivity extends AppCompatActivity implements NewsAdapter.OnSea
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.nav_search:
-                mDrawerLayout.closeDrawers();
-                return true;
             case R.id.nav_saved_search_results:
                 mDrawerLayout.closeDrawers();
                 Intent savedResultsIntent = new Intent(this, SavedSearchResultsActivity.class);
@@ -235,5 +236,30 @@ public class MainActivity extends AppCompatActivity implements NewsAdapter.OnSea
             default:
                 return false;
         }
+    }
+
+    public String check_query(String searchQuery){
+        if(searchQuery.equals("abc") || searchQuery.equals("ABC"))
+                return "abc-news-au";
+        else if(searchQuery.equals("bbc") || searchQuery.equals("BBC"))
+                return "bbc-news";
+        else if(searchQuery.equals("bbc") || searchQuery.equals("BBC"))
+            return "bbc-news";
+        else if(searchQuery.equals("cnn") || searchQuery.equals("CNN"))
+            return "cnn";
+        else if(searchQuery.equals("bbc") || searchQuery.equals("BBC"))
+            return "bbc-news";
+        else if(searchQuery.equals("bbc") || searchQuery.equals("BBC"))
+            return "bbc-news";
+        else if(searchQuery.equals("financial times") || searchQuery.equals("Finanical Times"))
+            return "financial-times";
+        else if(searchQuery.equals("google news") || searchQuery.equals("Google News"))
+            return "google-news";
+        else if(searchQuery.equals("usa today") || searchQuery.equals("USA Today"))
+            return "usa-today";
+        else if(searchQuery.equals("time") || searchQuery.equals("Time"))
+            return "Time";
+        else
+            return searchQuery;
     }
 }

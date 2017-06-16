@@ -61,7 +61,8 @@ public class SearchResultDetailActivity extends AppCompatActivity {
             mSearchResult = (NewsUtils.SearchResult) intent.getSerializableExtra(NewsUtils.SearchResult.EXTRA_SEARCH_RESULT);
             mSearchResultTitleTV.setText(mSearchResult.title);
             mSearchResultDateTV.setText(mSearchResult.date);
-            mSearchResultAuthorTV.setText("by " + mSearchResult.author);
+            if(!mSearchResult.author.equals("null"))
+                mSearchResultAuthorTV.setText("by " + mSearchResult.author);
             mSearchResultDescriptionTV.setText(mSearchResult.description);
             new DownloadImageTask(mSearchResultImageTV).execute(mSearchResult.image);
             mSearchResultUrlTV.setText("Link: " + mSearchResult.url);
