@@ -208,6 +208,9 @@ public class MainActivity extends AppCompatActivity implements NewsAdapter.OnSea
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.nav_search:
+                mDrawerLayout.closeDrawers();
+                return true;
             case R.id.nav_saved_search_results:
                 mDrawerLayout.closeDrawers();
                 Intent savedResultsIntent = new Intent(this, SavedSearchResultsActivity.class);

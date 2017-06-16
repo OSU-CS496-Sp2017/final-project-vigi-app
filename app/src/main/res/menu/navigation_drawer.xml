@@ -4,5 +4,9 @@
         android:id="@+id/nav_saved_search_results"
         android:icon="@drawable/ic_nav_saved_results"
         android:title="Saved Search Results" />
-g
+
+    <item
+        android:id="@+id/nav_search"
+        android:icon="@drawable/ic_action_search"
+        android:title="Search" />
 </menu>
