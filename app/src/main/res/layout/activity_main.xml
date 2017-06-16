@@ -40,6 +40,7 @@
             android:layout_height="match_parent"
             android:textSize="20sp"
             android:padding="16dp"
+            android:fontFamily="cursive"
             android:visibility="invisible"
             android:text="@string/loading_error_message" />
 
