@@ -9,11 +9,14 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 //import com.example.android.vigi.R;
+import com.example.android.vigi.data.SourcesPreference;
 import com.example.android.vigi.data.NewsSearchContract;
 import com.example.android.vigi.data.NewsSearchDBHelper;
 import com.example.android.vigi.utils.NewsUtils;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 /**
  * Created by Jacky on 6/13/17.
@@ -87,6 +90,17 @@ public class SavedSearchResultsActivity extends AppCompatActivity implements New
             searchResultsList.add(searchResult);
         }
         cursor.close();
+        String a = "title";
+        if (a.equals(SourcesPreference.getDefaultNewsSortby())){
+            if (searchResultsList.size() > 0) {
+                Collections.sort(searchResultsList, new Comparator<NewsUtils.SearchResult>() {
+                    @Override
+                    public int compare(final NewsUtils.SearchResult object1, final NewsUtils.SearchResult object2) {
+                        return object1.title.compareTo(object2.title);
+                    }
+                });
+            }
+        }
         return searchResultsList;
     }
 }
