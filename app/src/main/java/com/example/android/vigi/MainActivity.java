@@ -28,7 +28,7 @@ import android.support.design.widget.NavigationView;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.content.SharedPreferences;
 import android.support.v7.preference.PreferenceManager;
-import android.graphics.Typeface
+import android.graphics.Typeface;
 
 
 import com.example.android.vigi.utils.NewsUtils;
@@ -125,21 +125,6 @@ public class MainActivity extends AppCompatActivity implements NewsAdapter.OnSea
     private void doNews (String searchQuery){
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
-        String sort =
-                sharedPreferences.getString(
-                        getString(R.string.pref_sort_key),
-                        getString(R.string.pref_sort_default)
-                );
-        String category =
-                sharedPreferences.getString(
-                        getString(R.string.pref_category_key),
-                        getString(R.string.pref_category_default)
-                );
-
-        TextView text = (TextView) findViewById(R.id.tv_search_description);
-        Typeface font = Typeface.createFromAsset(getAssets(), "yourfont.ttf");
-        text.setTypeface(font);
-
         searchQuery = check_query(searchQuery);
         String newsSearchUrl = NewsUtils.buildNewsSearchURL(searchQuery);
 
@@ -227,11 +212,6 @@ public class MainActivity extends AppCompatActivity implements NewsAdapter.OnSea
                 mDrawerLayout.closeDrawers();
                 Intent savedResultsIntent = new Intent(this, SavedSearchResultsActivity.class);
                 startActivity(savedResultsIntent);
-                return true;
-            case R.id.nav_settings:
-                mDrawerLayout.closeDrawers();
-                Intent settingsIntent = new Intent(this, SettingsActivity.class);
-                startActivity(settingsIntent);
                 return true;
             default:
                 return false;

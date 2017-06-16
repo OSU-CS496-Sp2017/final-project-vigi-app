@@ -4,10 +4,5 @@
         android:id="@+id/nav_saved_search_results"
         android:icon="@drawable/ic_nav_saved_results"
         android:title="Saved Search Results" />
-
-
-    <item
-        android:id="@+id/nav_settings"
-        android:icon="@drawable/ic_action_setting"
-        android:title="Settings" />
+g
 </menu>
