@@ -6,6 +6,7 @@
 
     <item
         android:id="@+id/nav_saved_search_results"
+        android:icon="@drawable/ic_nav_saved_results"
         android:title="Saved Search Results" />
 
 
