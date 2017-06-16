@@ -211,7 +211,7 @@ public class MainActivity extends AppCompatActivity implements NewsAdapter.OnSea
                 Intent savedResultsIntent = new Intent(this, SavedSearchResultsActivity.class);
                 startActivity(savedResultsIntent);
                 return true;
-            
+
             default:
                 return false;
         }

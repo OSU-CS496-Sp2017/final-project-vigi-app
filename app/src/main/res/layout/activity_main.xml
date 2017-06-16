@@ -32,25 +32,20 @@
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_search_results"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_marginTop="60dp"
+            />
 
         <TextView
             android:id="@+id/tv_loading_error_message"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:textSize="20sp"
-            android:padding="16dp"
-            android:fontFamily="cursive"
-            android:visibility="invisible"
-            android:text="@string/loading_error_message" />
-
-        <Button
-            android:id="@+id/btn_search"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Do Search"
+            android:layout_height="96dp"
             android:fontFamily="cursive"
-            android:textSize="22sp" />
+            android:layout_marginTop="60dp"
+            android:padding="16dp"
+            android:text="@string/loading_error_message"
+            android:textSize="20sp"
+            android:visibility="invisible" />
 
         <ProgressBar
             android:id="@+id/pb_loading_indicator"
@@ -59,6 +54,14 @@
             android:layout_gravity="top|center_horizontal"
             android:layout_margin="32dp"
             android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/btn_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="cursive"
+            android:text="Do Search"
+            android:textSize="22sp" />
     </FrameLayout>
 
 </LinearLayout>
