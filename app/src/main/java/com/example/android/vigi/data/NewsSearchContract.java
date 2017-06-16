@@ -15,6 +15,7 @@ public class NewsSearchContract {
         public static final String COLUMN_URL = "url";
         public static final String COLUMN_AUTHOR = "author";
         public static final String COLUMN_DATE = "date";
+        public static final String COLUMN_IMAGE = "IMAGE";
     }
 
 }

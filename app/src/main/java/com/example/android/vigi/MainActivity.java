@@ -31,6 +31,7 @@ import android.support.v7.preference.PreferenceManager;
 import android.graphics.Typeface;
 
 
+import com.example.android.vigi.data.SourcesPreference;
 import com.example.android.vigi.utils.NewsUtils;
 import com.example.android.vigi.utils.NetworkUtils;
 
@@ -54,7 +55,6 @@ public class MainActivity extends AppCompatActivity implements NewsAdapter.OnSea
     private EditText mSearchBoxET;
     private ProgressBar mLoadingIndicatorPB;
     private TextView mLoadingErrorMessageTV;
-    private Toast mSearchResultToast;
     private NewsAdapter mNewsAdapter;
 
     private ArrayList<NewsUtils.SearchResult> mSearchResultsList;
@@ -124,7 +124,8 @@ public class MainActivity extends AppCompatActivity implements NewsAdapter.OnSea
 
     private void doNews (String searchQuery){
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-
+        String sort = sharedPreferences.getString(getString(R.string.pref_sort_key), getString(R.string.pref_sort_default));
+        SourcesPreference.change_sort(sort);
         searchQuery = check_query(searchQuery);
         String newsSearchUrl = NewsUtils.buildNewsSearchURL(searchQuery);
 
@@ -215,6 +216,11 @@ public class MainActivity extends AppCompatActivity implements NewsAdapter.OnSea
                 mDrawerLayout.closeDrawers();
                 Intent savedResultsIntent = new Intent(this, SavedSearchResultsActivity.class);
                 startActivity(savedResultsIntent);
+                return true;
+            case R.id.nav_settings:
+                mDrawerLayout.closeDrawers();
+                Intent settingsIntent = new Intent(this, SettingsActivity.class);
+                startActivity(settingsIntent);
                 return true;
             default:
                 return false;
